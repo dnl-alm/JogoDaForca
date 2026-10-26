@@ -20,8 +20,6 @@ Jogo da forca para terminal, escrito em C++. A palavra secreta é sorteada a par
 └── banco_palavras.txt           # Banco de palavras (precisa existir)
 ```
 
-> Ajuste `forca.cpp` para o nome real do seu arquivo principal.
-
 ## 🛠️ Requisitos
 
 - Compilador C++ com suporte a C++11 ou superior (g++, clang++ ou MSVC)
