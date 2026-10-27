@@ -2,11 +2,13 @@
 #include <string>
 #include <map>
 #include <vector>
-#include <fstream>
 #include <cstdlib>
-#include "gerenciar_banco_palavras.cpp"
+#include "forca.hpp"
+#include "gerenciar_banco_palavras.hpp"
+
 using namespace std;
 
+extern string palavra_secreta;
 map<char, bool> chutou;
 vector<char> chutes_errados;
 
@@ -28,13 +30,6 @@ bool nao_acertou() {
 
 bool nao_enforcou() {
     return chutes_errados.size() < 6;
-}
-
-void imprime_cabecalho() {
-    cout << "*************************************" << endl;
-    cout << "**** Bem-vindos ao jogo da forca ****" << endl;
-    cout << "*************************************" << endl;
-    cout << endl;
 }
 
 void imprime_erros() {
@@ -75,17 +70,7 @@ void chuta() {
     }
 }
 
-int main() {
-    imprime_cabecalho();
-
-    sorteia_palavra_secreta();
-    
-    while (nao_acertou() && nao_enforcou()) {
-        imprime_erros();
-        imprime_palavra();
-        chuta();
-    }
-
+void fim_de_jogo() {
     cout << "Fim de jogo!" << endl;
     cout << "A palavra secreta era " << palavra_secreta << endl;
     if (nao_acertou()) {
@@ -101,5 +86,4 @@ int main() {
             adiciona_palavra();
         }
     }
-
 }

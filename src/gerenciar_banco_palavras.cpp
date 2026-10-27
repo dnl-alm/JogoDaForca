@@ -4,13 +4,15 @@
 #include <vector>
 #include <fstream>
 #include <cstdlib>
+#include "gerenciar_banco_palavras.hpp"
+
 using namespace std;
 
 string palavra_secreta;
 
 vector<string> le_arquivo() {
     ifstream arquivo;
-    arquivo.open("banco_palavras.txt");
+    arquivo.open("./data/banco_palavras.txt");
 
     if (arquivo.is_open()) {
         int quantidade_palavras;
@@ -42,7 +44,7 @@ void sorteia_palavra_secreta() {
 
 void salva_arquivo(vector<string> nova_lista) {
     ofstream arquivo;
-    arquivo.open("banco_palavras.txt");
+    arquivo.open("./data/banco_palavras.txt");
 
     if (arquivo.is_open()) {
         arquivo << nova_lista.size() << endl;
